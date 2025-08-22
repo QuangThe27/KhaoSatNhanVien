@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Fint\\c#\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj": {}
+    "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj": {}
   },
   "projects": {
-    "D:\\Fint\\c#\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj": {
+    "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Fint\\c#\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj",
+        "projectUniqueName": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj",
         "projectName": "BE_API",
-        "projectPath": "D:\\Fint\\c#\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj",
+        "projectPath": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\Fint\\c#\\KhaoSatNhanVien\\BE_API\\BE_API\\obj\\",
+        "outputPath": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

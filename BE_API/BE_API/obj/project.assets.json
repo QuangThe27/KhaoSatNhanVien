@@ -2793,11 +2793,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Fint\\c#\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj",
+      "projectUniqueName": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj",
       "projectName": "BE_API",
-      "projectPath": "D:\\Fint\\c#\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj",
+      "projectPath": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\BE_API.csproj",
       "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "D:\\Fint\\c#\\KhaoSatNhanVien\\BE_API\\BE_API\\obj\\",
+      "outputPath": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2883,5 +2883,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }
