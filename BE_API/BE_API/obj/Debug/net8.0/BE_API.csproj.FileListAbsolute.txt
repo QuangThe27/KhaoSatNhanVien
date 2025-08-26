@@ -181,3 +181,11 @@ D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\obj\Debug\net8.0\refint\BE_API.dll
 D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\obj\Debug\net8.0\BE_API.pdb
 D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\obj\Debug\net8.0\BE_API.genruntimeconfig.cache
 D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\obj\Debug\net8.0\ref\BE_API.dll
+D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\bin\Debug\net8.0\Microsoft.Extensions.WebEncoders.dll
+D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
+D:\Fint\DoTuan\KhaoSatNhanVien\BE_API\BE_API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

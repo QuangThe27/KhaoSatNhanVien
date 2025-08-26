@@ -15,9 +15,7 @@ export const createDepartment = async (name) => {
         body: JSON.stringify({ name }),
     });
 
-    if (!response.ok) {
-        throw new Error('Lỗi khi tạo phòng ban');
-    }
+    if (!response.ok) throw new Error('Lỗi khi tạo phòng ban');
 };
 
 export const deleteDepartment = async (id) => {

@@ -3,6 +3,7 @@ import { routes } from './routes';
 
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
 import ManageLayout from './layouts/ManageLayout/ManageLayout';
+import 'antd/dist/reset.css';
 
 function App() {
     return (
