@@ -6,6 +6,12 @@ import EditDepartment from '../pages/manage/Department/EditDepartment';
 import User from '../pages/manage/Users/User';
 import CreateUser from '../pages/manage/Users/CreateUser';
 import EditUser from '../pages/manage/Users/EditUser';
+import Exam from '../pages/manage/Exam/Exam';
+import CreateExam from '../pages/manage/Exam/CreateExam';
+import EditExam from '../pages/manage/Exam/EditExam';
+import Question from '../pages/manage/Question/Question';
+import CreateQuestion from '../pages/manage/Question/CreateQuestion';
+import EditQuestion from '../pages/manage/Question/EditQuestion';
 
 // import user
 import Home from '../pages/user/Home/Home';
@@ -27,11 +33,13 @@ export const UserRoutes = [
 ];
 
 export const ManageRoutes = [
+    // Trang admin
     {
         path: '/admin',
         page: Manage,
         isManageRoute: true,
     },
+    // Phòng ban
     {
         path: '/admin/phongban',
         page: Department,
@@ -47,6 +55,7 @@ export const ManageRoutes = [
         page: EditDepartment,
         isManageRoute: true,
     },
+    // Người dùng
     {
         path: '/admin/users',
         page: User,
@@ -60,6 +69,38 @@ export const ManageRoutes = [
     {
         path: '/admin/users/edit/:id',
         page: EditUser,
+        isManageRoute: true,
+    },
+    // Bài kiểm tra
+    {
+        path: '/admin/baikiemtra',
+        page: Exam,
+        isManageRoute: true,
+    },
+    {
+        path: '/admin/baikiemtra/add',
+        page: CreateExam,
+        isManageRoute: true,
+    },
+    {
+        path: '/admin/baikiemtra/edit/:id',
+        page: EditExam,
+        isManageRoute: true,
+    },
+    // Câu hỏi
+    {
+        path: '/admin/cauhoi',
+        page: Question,
+        isManageRoute: true,
+    },
+    {
+        path: '/admin/cauhoi/add',
+        page: CreateQuestion,
+        isManageRoute: true,
+    },
+    {
+        path: '/admin/cauhoi/edit/:id',
+        page: EditQuestion,
         isManageRoute: true,
     },
 ];

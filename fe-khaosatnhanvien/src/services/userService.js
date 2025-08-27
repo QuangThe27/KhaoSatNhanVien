@@ -1,22 +1,23 @@
 const BASE_URL = 'https://localhost:7173/api/users';
+const API_TOKEN = 'abc12343';
 
 // Lấy danh sách tất cả người dùng
 export const getUsers = async () => {
-    const response = await fetch(BASE_URL);
+    const response = await fetch(`${BASE_URL}?token=${API_TOKEN}`);
     if (!response.ok) throw new Error('Không thể tải danh sách người dùng');
     return response.json();
 };
 
 // Lấy thông tin người dùng theo ID
 export const getUserById = async (id) => {
-    const response = await fetch(`${BASE_URL}/${id}`);
+    const response = await fetch(`${BASE_URL}/${id}?token=${API_TOKEN}`);
     if (!response.ok) throw new Error('Không tìm thấy người dùng');
     return response.json();
 };
 
 // Tạo người dùng mới
 export const createUser = async (userData) => {
-    const response = await fetch(BASE_URL, {
+    const response = await fetch(`${BASE_URL}?token=${API_TOKEN}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -25,14 +26,14 @@ export const createUser = async (userData) => {
     });
 
     if (!response.ok) {
-        const errorText = await response.text(); // lấy nội dung lỗi từ API
+        const errorText = await response.text();
         throw new Error(errorText);
     }
 };
 
 // Cập nhật thông tin người dùng
 export const updateUser = async (id, userData) => {
-    const response = await fetch(`${BASE_URL}/${id}`, {
+    const response = await fetch(`${BASE_URL}/${id}?token=${API_TOKEN}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -45,7 +46,7 @@ export const updateUser = async (id, userData) => {
 
 // Xóa người dùng
 export const deleteUser = async (id) => {
-    const response = await fetch(`${BASE_URL}/${id}`, {
+    const response = await fetch(`${BASE_URL}/${id}?token=${API_TOKEN}`, {
         method: 'DELETE',
     });
 

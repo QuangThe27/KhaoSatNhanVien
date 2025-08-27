@@ -61,6 +61,24 @@ function ManageLayout({ children }) {
                                 },
                                 {
                                     key: '3',
+                                    icon: <AppstoreOutlined />,
+                                    label: (
+                                        <Link to="/admin/baikiemtra" style={{ color: '#fff' }}>
+                                            Quản lý bài kiểm tra
+                                        </Link>
+                                    ),
+                                },
+                                {
+                                    key: '4',
+                                    icon: <AppstoreOutlined />,
+                                    label: (
+                                        <Link to="/admin/cauhoi" style={{ color: '#fff' }}>
+                                            Quản lý câu hỏi
+                                        </Link>
+                                    ),
+                                },
+                                {
+                                    key: '5',
                                     icon: <SettingOutlined />,
                                     label: (
                                         <Link to="/admin/settings" style={{ color: '#fff' }}>
