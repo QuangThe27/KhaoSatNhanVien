@@ -50,7 +50,7 @@ namespace BE_API.Controllers
             {
                 FullName = userDto.FullName,
                 Email = userDto.Email,
-                PasswordHash = userDto.PasswordHash,
+                Password = userDto.Password,
                 Role = userDto.Role,
                 Level = userDto.Level,
                 DepartmentId = userDto.DepartmentId,
@@ -77,7 +77,7 @@ namespace BE_API.Controllers
             // Cập nhật thông tin
             user.FullName = userDto.FullName;
             user.Email = userDto.Email;
-            user.PasswordHash = userDto.PasswordHash;
+            user.Password = userDto.Password;
             user.Role = userDto.Role;
             user.Level = userDto.Level;
             user.DepartmentId = userDto.DepartmentId;

@@ -30,7 +30,7 @@ function EditUser() {
                 form.setFieldsValue({
                     fullName: userData.fullName,
                     email: userData.email,
-                    passwordHash: userData.passwordHash, // hoặc bỏ nếu không muốn hiện lại
+                    password: userData.password, // hoặc bỏ nếu không muốn hiện lại
                     role: userData.role,
                     level: userData.level,
                     departmentId: userData.departmentId,
@@ -88,11 +88,11 @@ function EditUser() {
                     </Form.Item>
 
                     <Form.Item
-                        label="Mật khẩu (hash)"
-                        name="passwordHash"
+                        label="Mật khẩu"
+                        name="password"
                         rules={[{ required: true, message: 'Vui lòng nhập mật khẩu!' }]}
                     >
-                        <Input placeholder="Nhập mật khẩu đã mã hóa" />
+                        <Input placeholder="Nhập mật khẩu đã" />
                     </Form.Item>
 
                     <Form.Item

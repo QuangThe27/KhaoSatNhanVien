@@ -72,11 +72,11 @@ function CreateUser() {
                     </Form.Item>
 
                     <Form.Item
-                        label="Mật khẩu (hash)"
-                        name="passwordHash"
+                        label="Mật khẩu"
+                        name="password"
                         rules={[{ required: true, message: 'Vui lòng nhập mật khẩu!' }]}
                     >
-                        <Input placeholder="Nhập mật khẩu đã mã hóa" />
+                        <Input placeholder="Nhập mật khẩu đã" />
                     </Form.Item>
 
                     <Form.Item
