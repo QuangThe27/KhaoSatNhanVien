@@ -1,4 +1,5 @@
 ﻿using BE_API.Data;
+using BE_API.Middleware;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,10 +15,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
-        policy => policy.WithOrigins("http://localhost:3001") // frontend port
+        policy => policy.WithOrigins("http://localhost:3001")
                         .AllowAnyHeader()
                         .AllowAnyMethod());
 });
+
+// Đọc cấu hình ApiToken từ appsettings.json
+builder.Services.Configure<ApiTokenOptions>(builder.Configuration.GetSection("ApiToken"));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -35,6 +39,9 @@ app.UseHttpsRedirection();
 
 // Áp dụng CORS trước Authorization
 app.UseCors("AllowFrontend");
+
+// ✅ Thêm middleware kiểm tra token
+app.UseApiToken();
 
 app.UseAuthorization();
 
