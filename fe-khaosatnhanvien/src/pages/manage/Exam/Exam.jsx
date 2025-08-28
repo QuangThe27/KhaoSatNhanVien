@@ -1,13 +1,20 @@
-import { Table, Button, Space, message } from 'antd';
-import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
+import { Table, Button, Space, message, Modal } from 'antd';
+import { EditOutlined, DeleteOutlined, PlusOutlined, EyeOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getExams, deleteExam } from '../../../services/examService';
+import { getQuestionsByExamId, deleteExamQuestion } from '../../../services/examQuestionService';
 
 function Exam() {
     const navigate = useNavigate();
     const [exams, setExams] = useState([]);
     const [loading, setLoading] = useState(false);
+
+    // Modal hiển thị câu hỏi
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [questions, setQuestions] = useState([]);
+    const [selectedExam, setSelectedExam] = useState(null);
+    const [loadingQuestions, setLoadingQuestions] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -43,7 +50,32 @@ function Exam() {
         }
     };
 
-    const columns = [
+    const handleShowQuestions = async (exam) => {
+        setSelectedExam(exam);
+        setIsModalOpen(true);
+        setLoadingQuestions(true);
+        try {
+            const data = await getQuestionsByExamId(exam.id);
+            setQuestions(data);
+        } catch {
+            message.error('Không thể tải danh sách câu hỏi');
+        } finally {
+            setLoadingQuestions(false);
+        }
+    };
+
+    const handleDeleteQuestion = async (id) => {
+        if (!window.confirm('Bạn có chắc chắn muốn xóa câu hỏi này khỏi bài kiểm tra?')) return;
+        try {
+            await deleteExamQuestion(id);
+            message.success('Xóa câu hỏi thành công');
+            setQuestions((prev) => prev.filter((q) => q.id !== id));
+        } catch {
+            message.error('Không thể xóa câu hỏi');
+        }
+    };
+
+    const examColumns = [
         { title: 'STT', dataIndex: 'key', key: 'key' },
         { title: 'Tên bài kiểm tra', dataIndex: 'name', key: 'name' },
         { title: 'Vị trí', dataIndex: 'jobPosition', key: 'jobPosition' },
@@ -54,6 +86,14 @@ function Exam() {
             key: 'actions',
             render: (_, record) => (
                 <Space>
+                    <Button
+                        type="primary"
+                        icon={<EyeOutlined />}
+                        size="small"
+                        onClick={() => handleShowQuestions(record)}
+                    >
+                        Show
+                    </Button>
                     <Button
                         type="primary"
                         icon={<EditOutlined />}
@@ -70,6 +110,22 @@ function Exam() {
         },
     ];
 
+    const questionColumns = [
+        { title: 'ID', dataIndex: ['question', 'id'], key: 'id' },
+        { title: 'Nội dung', dataIndex: ['question', 'content'], key: 'content' },
+        { title: 'Loại', dataIndex: ['question', 'questionType'], key: 'questionType' },
+        { title: 'Điểm', dataIndex: ['question', 'score'], key: 'score' },
+        {
+            title: 'Chức năng',
+            key: 'actions',
+            render: (_, record) => (
+                <Button danger size="small" onClick={() => handleDeleteQuestion(record.id)}>
+                    Xóa
+                </Button>
+            ),
+        },
+    ];
+
     return (
         <div style={{ padding: '24px' }}>
             <div style={{ marginBottom: '16px', textAlign: 'right' }}>
@@ -77,9 +133,26 @@ function Exam() {
                     Thêm bài kiểm tra
                 </Button>
             </div>
-            <Table dataSource={exams} columns={columns} loading={loading} pagination={false} bordered />
+            <Table dataSource={exams} columns={examColumns} loading={loading} pagination={false} bordered />
+
+            {/* Modal hiển thị câu hỏi */}
+            <Modal
+                title={`Danh sách câu hỏi - ${selectedExam?.name}`}
+                open={isModalOpen}
+                onCancel={() => setIsModalOpen(false)}
+                footer={null}
+                width={800}
+            >
+                <Table
+                    dataSource={questions}
+                    columns={questionColumns}
+                    rowKey="id"
+                    loading={loadingQuestions}
+                    pagination={false}
+                    bordered
+                />
+            </Modal>
         </div>
     );
 }
-
 export default Exam;

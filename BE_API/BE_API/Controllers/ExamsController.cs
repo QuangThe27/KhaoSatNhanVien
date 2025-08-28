@@ -60,9 +60,19 @@ namespace BE_API.Controllers
             var exam = await _context.Exams.FindAsync(id);
             if (exam == null) return NotFound();
 
+            // Xóa tất cả các liên kết câu hỏi trước
+            var relatedQuestions = await _context.ExamQuestions
+                .Where(eq => eq.ExamId == id)
+                .ToListAsync();
+
+            _context.ExamQuestions.RemoveRange(relatedQuestions);
+
+            // Xóa bài kiểm tra
             _context.Exams.Remove(exam);
             await _context.SaveChangesAsync();
+
             return NoContent();
         }
+
     }
 }

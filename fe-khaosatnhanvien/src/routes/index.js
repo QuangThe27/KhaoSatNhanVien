@@ -12,6 +12,7 @@ import EditExam from '../pages/manage/Exam/EditExam';
 import Question from '../pages/manage/Question/Question';
 import CreateQuestion from '../pages/manage/Question/CreateQuestion';
 import EditQuestion from '../pages/manage/Question/EditQuestion';
+import CreateExamQuestion from '../pages/manage/Exam/CreateExamQuestion';
 
 // import user
 import Home from '../pages/user/Home/Home';
@@ -101,6 +102,12 @@ export const ManageRoutes = [
     {
         path: '/admin/cauhoi/edit/:id',
         page: EditQuestion,
+        isManageRoute: true,
+    },
+    // Add câu hỏi -> bài kiểm tra
+    {
+        path: '/admin/baikiemtra/add-question/:id',
+        page: CreateExamQuestion,
         isManageRoute: true,
     },
 ];
