@@ -74,6 +74,33 @@ namespace BE_API.Controllers
             return Ok(examQuestions);
         }
 
+        // POST: api/baikiemtra-cauhoi/bulk
+        [HttpPost("bulk")]
+        public async Task<IActionResult> CreateExamQuestions([FromBody] CreateExamQuestionsRequest request)
+        {
+            if (request == null || request.QuestionIds == null || !request.QuestionIds.Any())
+            {
+                return BadRequest("Danh sách câu hỏi không hợp lệ.");
+            }
+
+            var examQuestions = request.QuestionIds.Select(qId => new ExamQuestion
+            {
+                ExamId = request.ExamId,
+                QuestionId = qId
+            }).ToList();
+
+            _context.ExamQuestions.AddRange(examQuestions);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Thêm câu hỏi thành công" });
+        }
+
+        public class CreateExamQuestionsRequest
+        {
+            public int ExamId { get; set; }
+            public List<int> QuestionIds { get; set; }
+        }
+
         // DELETE: api/baikiemtra-cauhoi/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteExamQuestion(int id)

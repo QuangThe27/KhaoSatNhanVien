@@ -8,6 +8,22 @@ export const getQuestionsByExamId = async (examId) => {
     return await res.json();
 };
 
+// Tạo nhiều câu hỏi cho bài kiểm tra
+export const createExamQuestions = async (examId, questionIds) => {
+    const res = await fetch(`${BASE_URL}/bulk?token=${API_TOKEN}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            examId,
+            questionIds,
+        }),
+    });
+    if (!res.ok) throw new Error('Không thể thêm câu hỏi');
+    return await res.json();
+};
+
 // Xóa câu hỏi trong bài kiểm tra
 export const deleteExamQuestion = async (id) => {
     const res = await fetch(`${BASE_URL}/${id}?token=${API_TOKEN}`, {

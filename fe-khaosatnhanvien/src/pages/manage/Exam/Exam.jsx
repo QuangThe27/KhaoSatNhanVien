@@ -105,6 +105,13 @@ function Exam() {
                     <Button danger icon={<DeleteOutlined />} size="small" onClick={() => handleDelete(record.id)}>
                         Xóa
                     </Button>
+                    <Button
+                        type="dashed"
+                        size="small"
+                        onClick={() => navigate(`/admin/baikiemtra/add-question/${record.id}`)}
+                    >
+                        Thêm câu hỏi
+                    </Button>
                 </Space>
             ),
         },

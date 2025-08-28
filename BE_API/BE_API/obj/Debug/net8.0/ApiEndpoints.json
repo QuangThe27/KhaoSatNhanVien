@@ -83,6 +83,22 @@
   },
   {
     "ContainingType": "BE_API.Controllers.ExamQuestionsController",
+    "Method": "CreateExamQuestions",
+    "RelativePath": "api/baikiemtra-cauhoi/bulk",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BE_API.Controllers.ExamQuestionsController\u002BCreateExamQuestionsRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BE_API.Controllers.ExamQuestionsController",
     "Method": "GetByExamId",
     "RelativePath": "api/baikiemtra-cauhoi/by-exam/{examId}",
     "HttpMethod": "GET",

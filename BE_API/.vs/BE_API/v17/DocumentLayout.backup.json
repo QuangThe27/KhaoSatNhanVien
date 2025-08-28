@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "BE_API\\Controllers\\ExamQuestionsController.cs",
               "ToolTip": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Controllers\\ExamQuestionsController.cs",
               "RelativeToolTip": "BE_API\\Controllers\\ExamQuestionsController.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAqwDQAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAAAFsAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-28T08:54:52.25Z",
               "EditorCaption": ""
@@ -47,8 +47,7 @@
               "RelativeToolTip": "BE_API\\DTOs\\ExamQuestionDto.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAuwB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T08:53:49.621Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T08:53:49.621Z"
             },
             {
               "$type": "Document",
@@ -60,8 +59,7 @@
               "RelativeToolTip": "BE_API\\Models\\ExamQuestion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T03:24:43.152Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T03:24:43.152Z"
             }
           ]
         }
