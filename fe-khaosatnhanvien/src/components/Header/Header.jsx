@@ -1,6 +1,7 @@
 import { Button, Layout, Menu, Dropdown, Avatar, Space } from 'antd';
 import { UserOutlined, SettingOutlined, LogoutOutlined, FileTextOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 
@@ -9,7 +10,20 @@ const { Header: AntHeader } = Layout;
 
 function Header() {
     const navigate = useNavigate();
-    const isLoggedIn = false; /* true */ // tạm thời giả lập trạng thái đăng nhập
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const savedUser = localStorage.getItem('user');
+        if (savedUser) {
+            setUser(JSON.parse(savedUser));
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem('user');
+        setUser(null);
+        navigate('/login');
+    };
 
     const userMenu = (
         <Menu
@@ -28,6 +42,7 @@ function Header() {
                     key: 'logout',
                     icon: <LogoutOutlined />,
                     label: 'Đăng xuất',
+                    onClick: handleLogout,
                 },
             ]}
         />
@@ -47,15 +62,20 @@ function Header() {
             }}
         >
             {/* Logo bên trái */}
-            <div style={{ fontSize: 24, fontWeight: 'bold', color: '#1890ff' }}>FintLogo</div>
+            <div
+                style={{ fontSize: 24, fontWeight: 'bold', color: '#1890ff', cursor: 'pointer' }}
+                onClick={() => navigate('/')}
+            >
+                FintLogo
+            </div>
 
             {/* Giao diện bên phải */}
             <div>
-                {isLoggedIn ? (
+                {user ? (
                     <Dropdown overlay={userMenu} placement="bottomRight" arrow>
                         <Space style={{ cursor: 'pointer' }}>
                             <Avatar icon={<UserOutlined />} />
-                            <span style={{ fontWeight: 500 }}>TuanDo</span>
+                            <span style={{ fontWeight: 500 }}>{user?.fullName}</span>
                         </Space>
                     </Dropdown>
                 ) : (
