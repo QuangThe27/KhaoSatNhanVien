@@ -63,6 +63,15 @@ function Question() {
                     <Button danger icon={<DeleteOutlined />} size="small" onClick={() => handleDelete(record.id)}>
                         Xóa
                     </Button>
+                    {record.type === 'MultipleChoice' && (
+                        <Button
+                            type="default"
+                            size="small"
+                            onClick={() => navigate(`/admin/cauhoi/${record.id}/dapan/add`)}
+                        >
+                            Thêm đáp án
+                        </Button>
+                    )}
                 </Space>
             ),
         },

@@ -1,0 +1,66 @@
+.footer {
+    background-color: #f0f2f5;
+    padding: 40px 50px;
+    border-top: 1px solid #e8e8e8;
+
+    .title {
+        color: #1890ff;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .description,
+    .copyright-text {
+        color: rgba(0, 0, 0, 0.65);
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .links-section {
+        .ant-typography-link {
+            display: block;
+            margin-bottom: 8px;
+            color: rgba(0, 0, 0, 0.65);
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #1890ff;
+            }
+        }
+    }
+
+    .contact-item {
+        color: rgba(0, 0, 0, 0.65);
+
+        .ant-typography-link {
+            color: rgba(0, 0, 0, 0.65);
+
+            &:hover {
+                color: #1890ff;
+            }
+        }
+    }
+
+    .social-icons {
+        margin-top: 16px;
+
+        .icon {
+            font-size: 24px;
+            color: #595959;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #1890ff;
+            }
+        }
+    }
+
+    .copyright {
+        margin-top: 30px;
+        padding-top: 20px;
+        text-align: center;
+        border-top: 1px solid #d9d9d9;
+        color: rgba(0, 0, 0, 0.45);
+        font-size: 12px;
+    }
+}
