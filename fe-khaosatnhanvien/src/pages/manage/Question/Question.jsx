@@ -1,14 +1,22 @@
-import { Table, Button, Space, message } from 'antd';
-import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
+import { Table, Button, Space, message, Modal, Popconfirm } from 'antd';
+import { EditOutlined, DeleteOutlined, PlusOutlined, EyeOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getQuestions, deleteQuestion } from '../../../services/questionService';
+import { getAnswersByQuestionId, deleteAnswer } from '../../../services/answerService';
 
 function Question() {
     const navigate = useNavigate();
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    // Modal state
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedQuestion, setSelectedQuestion] = useState(null);
+    const [answers, setAnswers] = useState([]);
+    const [loadingAnswers, setLoadingAnswers] = useState(false);
+
+    // Load danh sách câu hỏi
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
@@ -31,6 +39,7 @@ function Question() {
         fetchData();
     }, []);
 
+    // Xóa câu hỏi
     const handleDelete = async (id) => {
         if (!window.confirm('Bạn có chắc chắn muốn xóa câu hỏi này?')) return;
         try {
@@ -39,6 +48,38 @@ function Question() {
             setQuestions((prev) => prev.filter((q) => q.id !== id));
         } catch {
             message.error('Không thể xóa câu hỏi');
+        }
+    };
+
+    // Hiển thị đáp án của câu hỏi
+    const handleShowAnswers = async (question) => {
+        setSelectedQuestion(question);
+        setIsModalOpen(true);
+        setLoadingAnswers(true);
+        try {
+            const data = await getAnswersByQuestionId(question.id);
+            const formatted = data.map((item, index) => ({
+                key: index + 1,
+                id: item.id,
+                content: item.content,
+                isCorrect: item.isCorrect,
+            }));
+            setAnswers(formatted);
+        } catch {
+            message.error('Không thể tải danh sách đáp án');
+        } finally {
+            setLoadingAnswers(false);
+        }
+    };
+
+    // Xóa đáp án
+    const handleDeleteAnswer = async (id) => {
+        try {
+            await deleteAnswer(id);
+            message.success('Xóa đáp án thành công');
+            setAnswers((prev) => prev.filter((a) => a.id !== id));
+        } catch {
+            message.error('Không thể xóa đáp án');
         }
     };
 
@@ -64,15 +105,53 @@ function Question() {
                         Xóa
                     </Button>
                     {record.type === 'MultipleChoice' && (
-                        <Button
-                            type="default"
-                            size="small"
-                            onClick={() => navigate(`/admin/cauhoi/${record.id}/dapan/add`)}
-                        >
-                            Thêm đáp án
-                        </Button>
+                        <>
+                            <Button
+                                type="primary"
+                                icon={<EyeOutlined />}
+                                size="small"
+                                onClick={() => handleShowAnswers(record)}
+                            >
+                                Show
+                            </Button>
+                            <Button
+                                type="default"
+                                size="small"
+                                onClick={() => navigate(`/admin/cauhoi/${record.id}/dapan/add`)}
+                            >
+                                Thêm đáp án
+                            </Button>
+                        </>
                     )}
                 </Space>
+            ),
+        },
+    ];
+
+    const answerColumns = [
+        { title: 'STT', dataIndex: 'key', key: 'key' },
+        { title: 'Nội dung đáp án', dataIndex: 'content', key: 'content' },
+        {
+            title: 'Đúng/Sai',
+            dataIndex: 'isCorrect',
+            key: 'isCorrect',
+            render: (value) => (value ? '✔ Đúng' : '✘ Sai'),
+        },
+        {
+            title: 'Chức năng',
+            key: 'actions',
+            render: (_, record) => (
+                <Popconfirm
+                    title="Xóa đáp án"
+                    description="Bạn có chắc chắn muốn xóa đáp án này?"
+                    onConfirm={() => handleDeleteAnswer(record.id)}
+                    okText="Có"
+                    cancelText="Không"
+                >
+                    <Button danger icon={<DeleteOutlined />} size="small">
+                        Xóa
+                    </Button>
+                </Popconfirm>
             ),
         },
     ];
@@ -85,6 +164,24 @@ function Question() {
                 </Button>
             </div>
             <Table dataSource={questions} columns={columns} loading={loading} pagination={false} bordered />
+
+            {/* Modal hiển thị đáp án */}
+            <Modal
+                title={`Danh sách đáp án - ${selectedQuestion?.content}`}
+                open={isModalOpen}
+                onCancel={() => setIsModalOpen(false)}
+                footer={null}
+                width={800}
+            >
+                <Table
+                    dataSource={answers}
+                    columns={answerColumns}
+                    rowKey="id"
+                    loading={loadingAnswers}
+                    pagination={false}
+                    bordered
+                />
+            </Modal>
         </div>
     );
 }
