@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|d:\\fint\\dotuan\\khaosatnhanvien\\be_api\\be_api\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|solutionrelative:be_api\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|d:\\fint\\dotuan\\khaosatnhanvien\\be_api\\be_api\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|solutionrelative:be_api\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|d:\\fint\\dotuan\\khaosatnhanvien\\be_api\\be_api\\controllers\\answerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|solutionrelative:be_api\\controllers\\answerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|d:\\fint\\dotuan\\khaosatnhanvien\\be_api\\be_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|solutionrelative:be_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|d:\\fint\\dotuan\\khaosatnhanvien\\be_api\\be_api\\dtos\\answerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|solutionrelative:be_api\\dtos\\answerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|d:\\fint\\dotuan\\khaosatnhanvien\\be_api\\be_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|solutionrelative:be_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|d:\\fint\\dotuan\\khaosatnhanvien\\be_api\\be_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|solutionrelative:be_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|d:\\fint\\dotuan\\khaosatnhanvien\\be_api\\be_api\\controllers\\examquestionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3314DF3F-8074-4283-BA20-3AAF30CF2994}|BE_API\\BE_API.csproj|solutionrelative:be_api\\controllers\\examquestionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,96 +18,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "AnswersController.cs",
               "DocumentMoniker": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Controllers\\AnswersController.cs",
               "RelativeDocumentMoniker": "BE_API\\Controllers\\AnswersController.cs",
               "ToolTip": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Controllers\\AnswersController.cs",
               "RelativeToolTip": "BE_API\\Controllers\\AnswersController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAADwvzkAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwB4AAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T08:17:13.589Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "BE_API\\Data\\AppDbContext.cs",
-              "ToolTip": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "BE_API\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T08:17:01.422Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AnswerDto.cs",
-              "DocumentMoniker": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\DTOs\\AnswerDto.cs",
-              "RelativeDocumentMoniker": "BE_API\\DTOs\\AnswerDto.cs",
-              "ToolTip": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\DTOs\\AnswerDto.cs",
-              "RelativeToolTip": "BE_API\\DTOs\\AnswerDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T08:16:50.527Z",
+              "WhenOpened": "2025-08-31T20:25:21.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Answer.cs",
-              "DocumentMoniker": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Models\\Answer.cs",
-              "RelativeDocumentMoniker": "BE_API\\Models\\Answer.cs",
-              "ToolTip": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Models\\Answer.cs",
-              "RelativeToolTip": "BE_API\\Models\\Answer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Title": "ExamQuestionsController.cs",
+              "DocumentMoniker": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Controllers\\ExamQuestionsController.cs",
+              "RelativeDocumentMoniker": "BE_API\\Controllers\\ExamQuestionsController.cs",
+              "ToolTip": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Controllers\\ExamQuestionsController.cs",
+              "RelativeToolTip": "BE_API\\Controllers\\ExamQuestionsController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwD4AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T08:16:25.342Z",
+              "WhenOpened": "2025-08-31T20:18:18.723Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Question.cs",
-              "DocumentMoniker": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Models\\Question.cs",
-              "RelativeDocumentMoniker": "BE_API\\Models\\Question.cs",
-              "ToolTip": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Models\\Question.cs",
-              "RelativeToolTip": "BE_API\\Models\\Question.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T08:15:41.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\appsettings.json",
-              "RelativeDocumentMoniker": "BE_API\\appsettings.json",
-              "ToolTip": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\appsettings.json",
-              "RelativeToolTip": "BE_API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-29T03:40:18.7Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "BE_API\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Fint\\DoTuan\\KhaoSatNhanVien\\BE_API\\BE_API\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "BE_API\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCIAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T03:37:52.546Z"
             }
           ]
         }

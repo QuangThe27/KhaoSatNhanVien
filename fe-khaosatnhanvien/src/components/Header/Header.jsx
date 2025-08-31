@@ -25,28 +25,40 @@ function Header() {
         navigate('/login');
     };
 
-    const userMenu = (
-        <Menu
-            items={[
-                {
-                    key: 'exam',
-                    icon: <FileTextOutlined />,
-                    label: 'Bài thi',
-                },
-                {
-                    key: 'settings',
-                    icon: <SettingOutlined />,
-                    label: 'Cài đặt',
-                },
-                {
-                    key: 'logout',
-                    icon: <LogoutOutlined />,
-                    label: 'Đăng xuất',
-                    onClick: handleLogout,
-                },
-            ]}
-        />
-    );
+    // Menu user
+    const userMenuItems = [
+        // chỉ hiển thị "Quản lý phần mềm" nếu Role hợp lệ
+        ...(user?.role === 'admin' || user?.role === 'manager'
+            ? [
+                  {
+                      key: 'manage',
+                      icon: <FileTextOutlined />,
+                      label: 'Quản lý phần mềm',
+                      onClick: () => window.open('/admin', '_blank'),
+                  },
+              ]
+            : []),
+        {
+            key: 'exam',
+            icon: <FileTextOutlined />,
+            label: 'Bài thi',
+            onClick: () => navigate('/exam'),
+        },
+        {
+            key: 'settings',
+            icon: <SettingOutlined />,
+            label: 'Cài đặt',
+            onClick: () => navigate('/settings'),
+        },
+        {
+            key: 'logout',
+            icon: <LogoutOutlined />,
+            label: 'Đăng xuất',
+            onClick: handleLogout,
+        },
+    ];
+
+    const userMenu = <Menu items={userMenuItems} />;
 
     return (
         <AntHeader

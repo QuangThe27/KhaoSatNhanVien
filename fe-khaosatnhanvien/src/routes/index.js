@@ -18,6 +18,8 @@ import AnswerAdd from '../pages/manage/Question/AnswerAdd';
 // import user
 import Home from '../pages/user/Home/Home';
 import Login from '../pages/auth/Login';
+import ExamList from '../pages/user/ExamsList/ExamList';
+import ExamDetail from '../pages/user/ExamDetail/ExamDetail';
 
 export const UserRoutes = [
     {
@@ -26,11 +28,26 @@ export const UserRoutes = [
         isShowHeader: true,
         isShowFooter: true,
     },
+    // Auth
     {
         path: '/login',
         page: Login,
         isShowHeader: false,
         isShowFooter: false,
+    },
+    // Exam
+    {
+        path: '/exams-list',
+        page: ExamList,
+        isShowHeader: true,
+        isShowFooter: true,
+    },
+    // Bài thi (trang làm bài của Exam)
+    {
+        path: '/exam/:id',
+        page: ExamDetail,
+        isShowHeader: true,
+        isShowFooter: true,
     },
 ];
 

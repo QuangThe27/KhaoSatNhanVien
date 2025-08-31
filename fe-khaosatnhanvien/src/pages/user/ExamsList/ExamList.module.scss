@@ -1,0 +1,42 @@
+.exam-container {
+    padding: 32px;
+    background: #f9fafe; // nền sáng công nghệ
+    min-height: 100vh;
+
+    .exam-title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 700;
+        color: #1d39c4;
+        margin-bottom: 32px;
+    }
+
+    .exam-card {
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        background: #fff;
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .ant-card-head-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1890ff;
+        }
+
+        p {
+            margin: 8px 0;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .exam-desc {
+            font-style: italic;
+            color: #595959;
+        }
+    }
+}
