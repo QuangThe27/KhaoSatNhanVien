@@ -13,10 +13,12 @@ namespace BE_API.Models
         public string Level { get; set; }  // fresher, junior, middle, senior
         public int DepartmentId { get; set; }
 
+        public string? Token { get; set; } // Mã xác thực khi quên mật khẩu
+
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-        // Navigation property (liên kết với Department)
         public Department? Department { get; set; }
     }
+
 }

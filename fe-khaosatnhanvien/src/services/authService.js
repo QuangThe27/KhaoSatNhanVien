@@ -17,3 +17,21 @@ export const login = async (email, password) => {
 
     return response.json();
 };
+
+export const forgotPassword = async (email) => {
+    const response = await fetch(`${BASE_URL}/forgot-password?token=${API_TOKEN}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+    });
+    if (!response.ok) throw new Error(await response.text());
+};
+
+export const resetPassword = async (email, token, newPassword) => {
+    const response = await fetch(`${BASE_URL}/reset-password?token=${API_TOKEN}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, token, newPassword }),
+    });
+    if (!response.ok) throw new Error(await response.text());
+};
