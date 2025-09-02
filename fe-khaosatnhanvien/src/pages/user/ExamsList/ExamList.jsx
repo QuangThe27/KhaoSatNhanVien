@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getExams } from '../../../services/examService';
+import { createExamResult } from '../../../services/examResultService';
 import { Card, Row, Col, Spin, message, Tag, Button } from 'antd';
 import {
     FileTextOutlined,
@@ -19,6 +20,7 @@ function ExamList() {
     const [exams, setExams] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const user = JSON.parse(localStorage.getItem('user')); // { id, ... }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -34,6 +36,27 @@ function ExamList() {
         };
         fetchData();
     }, []);
+
+    const handleStartExam = async (examId) => {
+        if (!user) {
+            message.error('Bạn cần đăng nhập để làm bài');
+            return;
+        }
+        try {
+            // Tạo ExamResult và LƯU examResultId vào localStorage
+            const created = await createExamResult(examId, user.id, 0);
+            if (!created?.id) {
+                message.error('Không nhận được ExamResultId từ server');
+                return;
+            }
+            localStorage.setItem('examResultId', String(created.id)); // 👈 QUAN TRỌNG
+            localStorage.setItem('currentExamId', String(examId)); // tiện đối chiếu/khôi phục
+            navigate(`/exam/${examId}`);
+        } catch (error) {
+            console.error(error);
+            message.error('Không thể khởi tạo kết quả bài kiểm tra');
+        }
+    };
 
     return (
         <div className={cx('exam-container')}>
@@ -57,7 +80,7 @@ function ExamList() {
                                     <Button
                                         type="primary"
                                         icon={<PlayCircleOutlined />}
-                                        onClick={() => navigate(`/exam/${exam.id}`)}
+                                        onClick={() => handleStartExam(exam.id)}
                                     >
                                         Làm bài
                                     </Button>,
@@ -69,7 +92,6 @@ function ExamList() {
                                 <p>
                                     <UserOutlined /> Vị trí: <b>{exam.jobPosition || 'Không xác định'}</b>
                                 </p>
-
                                 <p>
                                     <DeploymentUnitOutlined /> Trình độ:{' '}
                                     <Tag color="blue" style={{ fontWeight: 500 }}>

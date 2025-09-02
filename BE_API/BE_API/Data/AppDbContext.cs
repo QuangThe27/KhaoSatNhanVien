@@ -13,7 +13,8 @@ namespace BE_API.Data
         public DbSet<Question> Questions { get; set; }
         public DbSet<ExamQuestion> ExamQuestions { get; set; }
         public DbSet<Answer> Answers { get; set; }
-
+        public DbSet<ExamResult> ExamResults { get; set; }
+        public DbSet<ExamQuestionResult> ExamQuestionResults { get; set; }
 
     }
 }

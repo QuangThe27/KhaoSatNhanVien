@@ -344,6 +344,42 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BE_API.Controllers.ExamQuestionResultsController",
+    "Method": "GetAll",
+    "RelativePath": "api/dapan-baikiemtra",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_API.DTOs.ExamQuestionResultDto, BE_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_API.Controllers.ExamQuestionResultsController",
+    "Method": "Create",
+    "RelativePath": "api/dapan-baikiemtra",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dtos",
+        "Type": "System.Collections.Generic.List\u00601[[BE_API.DTOs.CreateExamQuestionResultDto, BE_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BE_API.Controllers.AnswersController",
     "Method": "GetAllAnswers",
     "RelativePath": "api/dapan-tracnghiem",
@@ -448,6 +484,52 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_API.Models.Answer, BE_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_API.Controllers.ExamResultsController",
+    "Method": "GetExamResults",
+    "RelativePath": "api/ketqua-kiemtra",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_API.DTOs.ExamResultDto, BE_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_API.Controllers.ExamResultsController",
+    "Method": "CreateExamResult",
+    "RelativePath": "api/ketqua-kiemtra",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BE_API.DTOs.CreateExamResultDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BE_API.DTOs.ExamResultDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

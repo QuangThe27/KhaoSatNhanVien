@@ -1,6 +1,28 @@
 const BASE_URL = 'https://localhost:7173/api/baikiemtra-cauhoi';
 const API_TOKEN = 'abc12343';
 
+/* Mẫu json nhận được
+[
+  {
+    "id": 31,
+    "examId": 13,
+    "questionId": 8,
+    "exam": {
+      "id": 13,
+      "name": "Bài kiểm tra số 01",
+      "jobPosition": "FE",
+      "level": "Jonier"
+    },
+    "question": {
+      "id": 8,
+      "content": "Có mấy cách CSS",
+      "questionType": "MultipleChoice",
+      "score": 5
+    }
+  }
+]
+*/
+
 // Lấy danh sách câu hỏi theo ExamId
 export const getQuestionsByExamId = async (examId) => {
     const res = await fetch(`${BASE_URL}/by-exam/${examId}?token=${API_TOKEN}`);

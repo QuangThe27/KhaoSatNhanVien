@@ -1,6 +1,21 @@
 const BASE_URL = 'https://localhost:7173/api/baikiemtra';
 const API_TOKEN = 'abc12343';
 
+/*
+[
+  {
+    "id": 13,
+    "name": "Bài kiểm tra số 01",
+    "description": "Bài kiểm tra năng lực đợt 1",
+    "durationMinutes": 60,
+    "jobPosition": "FE",
+    "level": "Jonier",
+    "createdAt": "2025-09-01T03:34:11.84",
+    "updatedAt": "2025-09-01T03:34:11.84"
+  }
+]
+*/
+
 export const getExams = async () => {
     const response = await fetch(`${BASE_URL}?token=${API_TOKEN}`);
     if (!response.ok) throw new Error('Không thể tải danh sách bài kiểm tra');
