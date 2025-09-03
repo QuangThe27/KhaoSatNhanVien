@@ -18,3 +18,14 @@ export const getExamQuestionResultsByExamResultId = async (examResultId) => {
     }
     return res.json();
 };
+
+export const updateExamQuestionScore = async (id, score) => {
+    const res = await fetch(`${BASE_URL}/${id}/score?token=${API_TOKEN}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(score),
+    });
+
+    if (!res.ok) throw new Error(await res.text());
+    return res.json();
+};

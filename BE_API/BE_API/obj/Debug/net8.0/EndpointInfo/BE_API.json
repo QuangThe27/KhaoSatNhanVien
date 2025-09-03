@@ -602,6 +602,51 @@
         }
       }
     },
+    "/api/dapan-baikiemtra/{id}/score": {
+      "put": {
+        "tags": [
+          "ExamQuestionResults"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/baikiemtra-cauhoi": {
       "get": {
         "tags": [
@@ -1781,6 +1826,10 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "maxScore": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false

@@ -12,6 +12,8 @@
         public string? EssayAnswers { get; set; }
         public decimal Score { get; set; }
         public DateTime CreatedAt { get; set; }
+        public decimal MaxScore { get; set; }
+
     }
 
     public class CreateExamQuestionResultDto

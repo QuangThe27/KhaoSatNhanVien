@@ -61,7 +61,8 @@ namespace BE_API.Controllers
                     AnswerContent = r.Answer != null ? r.Answer.Content : null,
                     EssayAnswers = r.EssayAnswers,
                     Score = r.Score,
-                    CreatedAt = r.CreatedAt
+                    CreatedAt = r.CreatedAt,
+                    MaxScore = r.Question.Score
                 })
                 .ToListAsync();
 
@@ -124,5 +125,33 @@ namespace BE_API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        // PUT: api/dapan-baikiemtra/{id}/score
+        [HttpPut("{id}/score")]
+        public async Task<IActionResult> UpdateScore(int id, [FromBody] decimal score)
+        {
+            var questionResult = await _context.ExamQuestionResults.FindAsync(id);
+            if (questionResult == null) return NotFound("Không tìm thấy kết quả câu hỏi.");
+
+            questionResult.Score = score;
+            questionResult.UpdatedAt = DateTime.Now;
+            await _context.SaveChangesAsync();
+
+            // 👉 Cập nhật lại tổng điểm cho ExamResult
+            var totalScore = await _context.ExamQuestionResults
+                .Where(r => r.ExamResultId == questionResult.ExamResultId)
+                .SumAsync(r => r.Score);
+
+            var examResult = await _context.ExamResults.FindAsync(questionResult.ExamResultId);
+            if (examResult != null)
+            {
+                examResult.TotalScore = totalScore;
+                examResult.UpdatedAt = DateTime.Now;
+                await _context.SaveChangesAsync();
+            }
+
+            return Ok(new { message = "Đã cập nhật điểm", newScore = score, totalScore });
+        }
+
     }
 }
