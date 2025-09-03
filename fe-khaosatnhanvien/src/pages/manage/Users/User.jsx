@@ -83,6 +83,15 @@ function User() {
                 <Button type="primary" icon={<PlusOutlined />} onClick={() => navigate('/admin/users/add')}>
                     Thêm người dùng
                 </Button>
+
+                <Button
+                    type="primary"
+                    icon={<PlusOutlined />}
+                    onClick={() => navigate('/admin/users/import')}
+                    style={{ marginLeft: '10px' }}
+                >
+                    Import excel
+                </Button>
             </div>
 
             <Table dataSource={users} columns={columns} loading={loading} pagination={false} bordered />

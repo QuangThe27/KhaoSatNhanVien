@@ -17,6 +17,7 @@ import EditQuestion from '../pages/manage/Question/EditQuestion';
 import CreateExamQuestion from '../pages/manage/Exam/CreateExamQuestion';
 import AnswerAdd from '../pages/manage/Question/AnswerAdd';
 import ExamResultsManage from '../pages/manage/ExamResultsManage/ExamResultsManage';
+import ImportUser from '../pages/manage/Users/ImportUser';
 
 export const ManageRoutes = [
     // Trang admin
@@ -55,6 +56,11 @@ export const ManageRoutes = [
     {
         path: '/admin/users/edit/:id',
         page: EditUser,
+        isManageRoute: true,
+    },
+    {
+        path: '/admin/users/import',
+        page: ImportUser,
         isManageRoute: true,
     },
     // Bài kiểm tra

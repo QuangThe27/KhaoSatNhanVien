@@ -3,6 +3,8 @@ using BE_API.DTOs;
 using BE_API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ClosedXML.Excel;
+using Microsoft.AspNetCore.Http;
 
 namespace BE_API.Controllers
 {
@@ -62,6 +64,55 @@ namespace BE_API.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+        }
+
+        [HttpPost("import")]
+        public async Task<IActionResult> ImportUsers(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("Vui lòng chọn file Excel hợp lệ.");
+
+            var users = new List<User>();
+
+            using (var stream = new MemoryStream())
+            {
+                await file.CopyToAsync(stream);
+                using (var workbook = new XLWorkbook(stream))
+                {
+                    var worksheet = workbook.Worksheets.First();
+                    var rows = worksheet.RangeUsed().RowsUsed().Skip(1); // Bỏ qua header
+
+                    foreach (var row in rows)
+                    {
+                        var email = row.Cell(2).GetString();
+                        // Kiểm tra email đã tồn tại
+                        if (await _context.Users.AnyAsync(u => u.Email == email))
+                            continue;
+
+                        var user = new User
+                        {
+                            FullName = row.Cell(1).GetString(),
+                            Email = email,
+                            Password = row.Cell(3).GetString(),
+                            Role = row.Cell(4).GetString(),
+                            Level = row.Cell(5).GetString(),
+                            DepartmentId = int.Parse(row.Cell(6).GetString()),
+                            CreatedAt = DateTime.Now,
+                            UpdatedAt = DateTime.Now
+                        };
+
+                        users.Add(user);
+                    }
+                }
+            }
+
+            if (users.Count > 0)
+            {
+                _context.Users.AddRange(users);
+                await _context.SaveChangesAsync();
+            }
+
+            return Ok(new { Message = $"Đã import {users.Count} người dùng thành công" });
         }
 
         // PUT: api/users/5

@@ -826,6 +826,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BE_API.Controllers.UsersController",
+    "Method": "ImportUsers",
+    "RelativePath": "api/users/import",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BE_API.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

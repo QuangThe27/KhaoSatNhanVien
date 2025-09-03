@@ -52,3 +52,21 @@ export const deleteUser = async (id) => {
 
     if (!response.ok) throw new Error('Không thể xóa người dùng');
 };
+
+// Import user từ Excel
+export const importUsers = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const response = await fetch(`${BASE_URL}/import?token=${API_TOKEN}`, {
+        method: 'POST',
+        body: formData,
+    });
+
+    if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText);
+    }
+
+    return response.json();
+};
