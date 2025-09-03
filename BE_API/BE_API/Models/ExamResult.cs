@@ -13,5 +13,7 @@ namespace BE_API.Models
 
         public Exam? Exam { get; set; }
         public User? User { get; set; }
+        public ICollection<ExamQuestionResult> ExamQuestionResults { get; set; }
+        = new List<ExamQuestionResult>();
     }
 }

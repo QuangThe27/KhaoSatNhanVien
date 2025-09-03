@@ -380,6 +380,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BE_API.Controllers.ExamQuestionResultsController",
+    "Method": "GetByExamResultId",
+    "RelativePath": "api/dapan-baikiemtra/examresult/{examResultId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "examResultId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_API.DTOs.ExamQuestionResultDto, BE_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "BE_API.Controllers.AnswersController",
     "Method": "GetAllAnswers",
     "RelativePath": "api/dapan-tracnghiem",
@@ -495,7 +521,7 @@
   },
   {
     "ContainingType": "BE_API.Controllers.ExamResultsController",
-    "Method": "GetExamResults",
+    "Method": "GetAllExamResults",
     "RelativePath": "api/ketqua-kiemtra",
     "HttpMethod": "GET",
     "IsController": true,
@@ -530,6 +556,48 @@
     "ReturnTypes": [
       {
         "Type": "BE_API.DTOs.ExamResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BE_API.Controllers.ExamResultsController",
+    "Method": "DeleteExamResult",
+    "RelativePath": "api/ketqua-kiemtra/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BE_API.Controllers.ExamResultsController",
+    "Method": "GetExamResultsByUser",
+    "RelativePath": "api/ketqua-kiemtra/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BE_API.DTOs.ExamResultDto, BE_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

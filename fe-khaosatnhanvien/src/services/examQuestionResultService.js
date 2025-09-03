@@ -10,3 +10,11 @@ export const createExamQuestionResults = async (results) => {
     if (!response.ok) throw new Error((await response.text()) || 'Không thể lưu kết quả câu hỏi');
     return response.json();
 };
+
+export const getExamQuestionResultsByExamResultId = async (examResultId) => {
+    const res = await fetch(`${BASE_URL}/examresult/${examResultId}?token=${API_TOKEN}`);
+    if (!res.ok) {
+        throw new Error(`Không thể tải chi tiết bài kiểm tra ${examResultId}`);
+    }
+    return res.json();
+};

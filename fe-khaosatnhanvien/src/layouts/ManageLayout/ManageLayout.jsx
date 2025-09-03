@@ -79,10 +79,10 @@ function ManageLayout({ children }) {
                                 },
                                 {
                                     key: '5',
-                                    icon: <SettingOutlined />,
+                                    icon: <AppstoreOutlined />,
                                     label: (
-                                        <Link to="/admin/settings" style={{ color: '#fff' }}>
-                                            Cài đặt hệ thống
+                                        <Link to="/admin/exams-results" style={{ color: '#fff' }}>
+                                            Quản lý kết quả kiểm tra
                                         </Link>
                                     ),
                                 },

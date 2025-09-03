@@ -42,14 +42,39 @@ namespace BE_API.Controllers
             return Ok(data);
         }
 
+        // GET: api/dapan-baikiemtra/examresult/{examResultId}
+        [HttpGet("examresult/{examResultId}")]
+        public async Task<ActionResult<IEnumerable<ExamQuestionResultDto>>> GetByExamResultId(int examResultId)
+        {
+            var data = await _context.ExamQuestionResults
+                .Include(r => r.Question)
+                .Include(r => r.Answer)
+                .Where(r => r.ExamResultId == examResultId)
+                .Select(r => new ExamQuestionResultDto
+                {
+                    Id = r.Id,
+                    ExamResultId = r.ExamResultId,
+                    QuestionId = r.QuestionId,
+                    QuestionContent = r.Question.Content,
+                    QuestionType = r.Question.QuestionType,
+                    AnswerId = r.AnswerId,
+                    AnswerContent = r.Answer != null ? r.Answer.Content : null,
+                    EssayAnswers = r.EssayAnswers,
+                    Score = r.Score,
+                    CreatedAt = r.CreatedAt
+                })
+                .ToListAsync();
+
+            return Ok(data);
+        }
+
         // POST: api/dapan-baikiemtra
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] List<CreateExamQuestionResultDto> dtos) // 👈 quan trọng
+        public async Task<ActionResult> Create([FromBody] List<CreateExamQuestionResultDto> dtos)
         {
             if (dtos == null || dtos.Count == 0)
                 return BadRequest("Dữ liệu rỗng.");
 
-            // Kiểm tra ExamResultId tồn tại
             var examResultId = dtos[0].ExamResultId;
             var exists = await _context.ExamResults.AnyAsync(x => x.Id == examResultId);
             if (!exists) return NotFound("ExamResult không tồn tại.");
@@ -76,8 +101,22 @@ namespace BE_API.Controllers
                 }
 
                 await _context.SaveChangesAsync();
+
+                // 👉 Tính tổng điểm và cập nhật ExamResult
+                var totalScore = await _context.ExamQuestionResults
+                    .Where(r => r.ExamResultId == examResultId)
+                    .SumAsync(r => r.Score);
+
+                var examResult = await _context.ExamResults.FindAsync(examResultId);
+                if (examResult != null)
+                {
+                    examResult.TotalScore = totalScore;
+                    examResult.UpdatedAt = DateTime.Now;
+                    await _context.SaveChangesAsync();
+                }
+
                 await trx.CommitAsync();
-                return Ok(new { message = "Đã lưu kết quả chi tiết bài kiểm tra" });
+                return Ok(new { message = "Đã lưu kết quả chi tiết bài kiểm tra và cập nhật tổng điểm" });
             }
             catch (Exception ex)
             {

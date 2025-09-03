@@ -42,7 +42,7 @@ function Header() {
             key: 'exam',
             icon: <FileTextOutlined />,
             label: 'Bài thi',
-            onClick: () => navigate('/exam'),
+            onClick: () => navigate('/exam-results'),
         },
         {
             key: 'settings',

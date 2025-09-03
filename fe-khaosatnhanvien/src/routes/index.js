@@ -14,6 +14,7 @@ import CreateQuestion from '../pages/manage/Question/CreateQuestion';
 import EditQuestion from '../pages/manage/Question/EditQuestion';
 import CreateExamQuestion from '../pages/manage/Exam/CreateExamQuestion';
 import AnswerAdd from '../pages/manage/Question/AnswerAdd';
+import ExamResultsManage from '../pages/manage/ExamResultsManage/ExamResultsManage';
 
 // import user
 import Home from '../pages/user/Home/Home';
@@ -22,6 +23,7 @@ import ForgotPassword from '../pages/auth/ForgotPassword';
 import ResetPassword from '../pages/auth/ResetPassword';
 import ExamList from '../pages/user/ExamsList/ExamList';
 import ExamDetail from '../pages/user/ExamDetail/ExamDetail';
+import ExamResults from '../pages/user/ExamResults/ExamResults';
 
 export const UserRoutes = [
     {
@@ -60,6 +62,12 @@ export const UserRoutes = [
     {
         path: '/exam/:id',
         page: ExamDetail,
+        isShowHeader: true,
+        isShowFooter: true,
+    },
+    {
+        path: '/exam-results',
+        page: ExamResults,
         isShowHeader: true,
         isShowFooter: true,
     },
@@ -146,6 +154,12 @@ export const ManageRoutes = [
     {
         path: '/admin/cauhoi/:id/dapan/add',
         page: AnswerAdd,
+        isManageRoute: true,
+    },
+    // Kết quả kiểm tra
+    {
+        path: '/admin/exams-results',
+        page: ExamResultsManage,
         isManageRoute: true,
     },
 ];
