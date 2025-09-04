@@ -1,5 +1,5 @@
 const BASE_URL = 'https://localhost:7173/api/cauhoi';
-const API_TOKEN = 'abc12343';
+const API_TOKEN = process.env.REACT_APP_API_TOKEN;
 
 export const getQuestions = async () => {
     const response = await fetch(`${BASE_URL}?token=${API_TOKEN}`);

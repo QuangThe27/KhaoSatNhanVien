@@ -4,7 +4,8 @@ import { getQuestionsByExamId } from '../../../services/examQuestionService';
 import { getExamById } from '../../../services/examService';
 import { getAnswersByQuestionId } from '../../../services/answerService';
 import { createExamQuestionResults } from '../../../services/examQuestionResultService';
-import { Card, Spin, message, Typography, Radio, Input, Tag, Button } from 'antd';
+import { Card, Spin, Typography, Radio, Input, Tag, Button } from 'antd';
+import Notification from '../../../components/Notification/Notification';
 import './ExamDetail.scss';
 
 const { Title } = Typography;
@@ -20,6 +21,7 @@ function ExamDetail() {
     const [timeLeft, setTimeLeft] = useState(0);
     const [userAnswers, setUserAnswers] = useState({});
     const [examResultId, setExamResultId] = useState(null);
+    const [notification, setNotification] = useState(null);
 
     useEffect(() => {
         const fetchExamData = async () => {
@@ -51,7 +53,11 @@ function ExamDetail() {
                 if (er) setExamResultId(parseInt(er, 10));
             } catch (error) {
                 console.error(error);
-                message.error('Lỗi tải dữ liệu bài kiểm tra');
+                setNotification({
+                    type: 'error',
+                    message: 'Lỗi tải dữ liệu',
+                    description: 'Không thể tải dữ liệu bài kiểm tra.',
+                });
             } finally {
                 setLoading(false);
             }
@@ -86,7 +92,11 @@ function ExamDetail() {
 
     const handleSubmit = async () => {
         if (!examResultId) {
-            message.error('Không tìm thấy ExamResultId. Hãy quay lại danh sách và vào lại bài thi.');
+            setNotification({
+                type: 'error',
+                message: 'Không tìm thấy ExamResultId',
+                description: 'Hãy quay lại danh sách và vào lại bài thi.',
+            });
             return;
         }
 
@@ -112,14 +122,23 @@ function ExamDetail() {
 
             await createExamQuestionResults(payload);
 
-            message.success('Nộp bài thành công!');
+            setNotification({
+                type: 'success',
+                message: 'Nộp bài thành công',
+                description: 'Bài kiểm tra của bạn đã được ghi nhận.',
+            });
+
             // Xóa dấu vết kỳ thi hiện tại
             localStorage.removeItem('examResultId');
             localStorage.removeItem('currentExamId');
-            navigate('/'); // về trang danh sách
+            setTimeout(() => navigate('/'), 2000);
         } catch (error) {
             console.error(error);
-            message.error('Nộp bài thất bại');
+            setNotification({
+                type: 'error',
+                message: 'Nộp bài thất bại',
+                description: 'Đã xảy ra lỗi khi lưu kết quả. Vui lòng thử lại.',
+            });
         }
     };
 
@@ -176,6 +195,16 @@ function ExamDetail() {
                         </Button>
                     </div>
                 </>
+            )}
+
+            {notification && (
+                <Notification
+                    type={notification.type}
+                    message={notification.message}
+                    description={notification.description}
+                    duration={3500}
+                    onClose={() => setNotification(null)}
+                />
             )}
         </div>
     );

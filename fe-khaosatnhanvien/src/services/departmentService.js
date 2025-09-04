@@ -1,5 +1,5 @@
 const BASE_URL = 'https://localhost:7173/api/phongban';
-const API_TOKEN = 'abc12343'; // 🔑 Token giống BE
+const API_TOKEN = process.env.REACT_APP_API_TOKEN;
 
 // Lấy danh sách phòng ban
 export const getDepartments = async () => {

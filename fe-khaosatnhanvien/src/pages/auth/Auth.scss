@@ -1,15 +1,25 @@
 .auth-container {
-    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background: linear-gradient(to right, #e0f7fa, #ffffff);
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    padding: 20px;
+}
+
+.auth-logo {
+    margin-bottom: 20px;
+    cursor: pointer;
+    img {
+        width: 80px;
+        height: 80px;
+    }
 }
 
 .auth-card {
     width: 100%;
     max-width: 400px;
-    padding: 32px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

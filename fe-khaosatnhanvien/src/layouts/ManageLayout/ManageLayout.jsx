@@ -1,5 +1,5 @@
 import { Layout, Row, Col, Menu } from 'antd';
-import { UserOutlined, SettingOutlined, AppstoreOutlined } from '@ant-design/icons';
+import { UserOutlined, AppstoreOutlined } from '@ant-design/icons';
 import classNames from 'classnames/bind';
 import styles from './ManageLayout.module.scss';
 import { useNavigate, Link } from 'react-router-dom';
@@ -10,6 +10,9 @@ const { Sider, Content } = Layout;
 
 function ManageLayout({ children }) {
     const navigate = useNavigate();
+    const storedUser = localStorage.getItem('user');
+    const user = storedUser ? JSON.parse(storedUser) : null;
+
     return (
         <Layout style={{ minHeight: '100vh' }}>
             <Row style={{ flex: 1, width: '100%' }}>
@@ -33,7 +36,8 @@ function ManageLayout({ children }) {
                             }}
                             onClick={() => navigate('/admin')}
                         >
-                            Manage
+                            Quản trị viên:
+                            <p>{user.fullName}</p>
                         </div>
                         <Menu
                             theme="dark"

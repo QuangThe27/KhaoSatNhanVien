@@ -1,5 +1,5 @@
 const BASE_URL = 'https://localhost:7173/api/baikiemtra';
-const API_TOKEN = 'abc12343';
+const API_TOKEN = process.env.REACT_APP_API_TOKEN;
 
 /*
 [

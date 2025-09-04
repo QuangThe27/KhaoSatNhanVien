@@ -16,7 +16,7 @@ function App() {
 
                     // Nếu là route admin thì bọc bằng ProtectedRoute
                     const element = route.isManageRoute ? (
-                        <ProtectedRoute requiredRole="admin">
+                        <ProtectedRoute requiredRoles={['admin', 'manager']}>
                             <Layout isShowHeader={route.isShowHeader} isShowFooter={route.isShowFooter}>
                                 <Page />
                             </Layout>

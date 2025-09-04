@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
 
-function ProtectedRoute({ children, requiredRole }) {
+function ProtectedRoute({ children, requiredRoles }) {
     const storedUser = localStorage.getItem('user');
     const user = storedUser ? JSON.parse(storedUser) : null;
 
@@ -9,8 +9,8 @@ function ProtectedRoute({ children, requiredRole }) {
         return <Navigate to="/login" replace />;
     }
 
-    // Nếu có yêu cầu role mà user không thỏa
-    if (requiredRole && user.role !== requiredRole) {
+    // Nếu có yêu cầu role và user không nằm trong danh sách
+    if (requiredRoles && !requiredRoles.includes(user.role)) {
         return <Navigate to="/" replace />;
     }
 
